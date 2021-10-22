@@ -1,0 +1,12 @@
+name: Team Productive Raccoons' approval workflow
+on: pull_request_review
+jobs:
+  labelWhenApproved:
+    runs-on: ubuntu-latest
+    steps:
+    - name: approveLabel
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: 1
+        ADD_LABEL: "approved"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
